@@ -1,7 +1,12 @@
 Installation
 ```
 # git clone https://github.com/kubernetes-sigs/kubespray.git
+# cd ./kubespray && git checkout v2.12.1 && cd ..
 # sudo pip install -r kubespray/requirements.txt
+# cp -rfp ./kubespray/inventory/sample mycluster
+# vi ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+-kube_network_plugin: calico
++kube_network_plugin: flannel
 # ansible-playbook -i ./mycluster/inventory.ini kubespray/cluster.yml
 ```
 
