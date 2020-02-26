@@ -1,4 +1,8 @@
-```ansible-playbook -i ./mycluster/inventory.ini kubespray/cluster.yml```
+Installation
+```
+# git clone https://github.com/kubernetes-sigs/kubespray.git
+# sudo pip install -r kubespray/requirements.txt
+# ansible-playbook -i ./mycluster/inventory.ini kubespray/cluster.yml
 ```
 
 ```
