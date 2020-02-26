@@ -9,7 +9,18 @@ Installation
 +kube_network_plugin: flannel
 # ansible-playbook -i ./mycluster/inventory.ini kubespray/cluster.yml
 ```
+For Ingress add single IP for each master nodes and run
+```
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
+# kubectl apply -f svc-ingress-nginx.yml
 
+```
+test manifest with ingress
+```
+# kubectl  apply -f test-manifest.yml
+```
+
+fix:
 ```
 [root@m01k8s ~]# kubectl  get nodes
 NAME               STATUS   ROLES    AGE   VERSION
