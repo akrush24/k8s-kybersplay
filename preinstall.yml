@@ -5,3 +5,24 @@
     yum:
       name: '*'
       state: latest
+  - name: install pkgs
+    yum: name="{{ item }}" state=installed
+    loop:
+      - chrony
+      - bash-completion
+      - iperf3
+      - sysstat
+      - smartmontools
+      - lshw
+      - hwinfo
+      - net-tools
+      - telnet
+      - fio
+      - hdparm
+      - ipmitool
+      - wget
+      - htop
+      - pv
+      - nfs-utils
+    when: ansible_os_family == "RedHat"
+
