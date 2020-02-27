@@ -4,9 +4,28 @@ Installation
 # cd ./kubespray && git checkout v2.12.1 && cd ..
 # sudo pip install -r kubespray/requirements.txt
 # cp -rfp ./kubespray/inventory/sample mycluster
-# vi ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
--kube_network_plugin: calico
-+kube_network_plugin: flannel
+# diff -r mycluster/group_vars/k8s-cluster/addons.yml kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
+7c7
+< helm_enabled: true
+---
+> helm_enabled: false
+81c81
+< ingress_nginx_enabled: true
+---
+> ingress_nginx_enabled: false
+83,86c83
+< ingress_publish_status_address:
+<   - "192.168.32.185"
+<   - "192.168.32.186"
+<   - "192.168.32.187"
+---
+> ingress_publish_status_address: ""
+diff -r mycluster/group_vars/k8s-cluster/k8s-cluster.yml kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+75c75
+< kube_network_plugin: flannel
+---
+> kube_network_plugin: calico
+
 # ansible-playbook -i ./mycluster/inventory.ini kubespray/cluster.yml
 ```
 For Ingress add single IP for each master nodes and run
