@@ -16,7 +16,7 @@
 ```
 For Ingress add single IP for each master nodes and run
 ```
-# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
+# kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.35.0/deploy/static/provider/baremetal/deploy.yaml
 # kubectl apply -f svc-ingress-nginx.yml
 
 ```
