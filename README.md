@@ -14,6 +14,13 @@
 
 # ansible-playbook -i ./mycluster/inventory.ini kubespray/cluster.yml
 ```
+in master nodes:
+```
+yum install bash-completion
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+kubectl completion bash >/etc/bash_completion.d/kubectl
+```
+
 For Ingress add single IP for each master nodes and run
 ```
 # kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.35.0/deploy/static/provider/baremetal/deploy.yaml
